@@ -2,13 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const todosSchema = require("./routes/todos.route");
-const bodyParser = require("body-parser");
 
 const todoAppScript = async () => {
 	const app = express();
 
 	// third-party middleware
-	app.use(bodyParser.json());
+	app.use(express.json());
 
 	app.use("/api/v1/", todosSchema);
 
