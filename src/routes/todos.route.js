@@ -1,6 +1,6 @@
 const express = require("express");
 const TodoModel = require("../model/todos.model");
-
+const auth = require("../middleware/Authorization");
 const router = express.Router();
 
 router.get("/todos", (req, res) => {
@@ -9,7 +9,7 @@ router.get("/todos", (req, res) => {
 	});
 });
 
-router.post("/todos", (req, res) => {
+router.post("/todos", auth, (req, res) => {
 	if (!req.body) {
 		return res.status(400).send("Request Body Not Found");
 	}
@@ -44,7 +44,7 @@ router.get("/todos/:id", (req, res) => {
 		});
 });
 
-router.patch("/todos", (req, res) => {
+router.patch("/todos", auth, (req, res) => {
 	if (!req.query) {
 		return res.status(500).send("Todo id not found");
 	}
@@ -64,7 +64,7 @@ router.patch("/todos", (req, res) => {
 		});
 });
 
-router.delete("/todo:id", (req, res) => {
+router.delete("/todos:id", auth, (req, res) => {
 	if (!req.query) {
 		return res.status(500).send("Todo id not found");
 	}
