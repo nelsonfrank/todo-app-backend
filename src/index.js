@@ -1,15 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const todosSchema = require("./routes/todos.route");
-
+const todosRoutes = require("./routes/todos.route");
+const authRoutes = require("./routes/auth.route");
 const todoAppScript = async () => {
 	const app = express();
 
 	// third-party middleware
 	app.use(express.json());
 
-	app.use("/api/v1/", todosSchema);
+	app.use("/api/v1/auth/", authRoutes);
+	app.use("/api/v1/", todosRoutes);
 
 	// 404 Error Handler
 	app.use((req, res, next) => {
