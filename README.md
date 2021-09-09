@@ -6,3 +6,4 @@ API URL - https://todo-app-backend-1.herokuapp.com/api/v1/
 
 - [Best practices for REST API design](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
 - [RESTful web API design](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
+- [The 10 REST Commandments](https://dev.to/cindreta/the-10-rest-commandments-13jk?signin=true)
